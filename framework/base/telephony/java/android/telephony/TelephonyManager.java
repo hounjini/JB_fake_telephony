@@ -680,6 +680,24 @@ public class TelephonyManager {
      * Requires Permission:
      *   {@link android.Manifest.permission#READ_PHONE_STATE READ_PHONE_STATE}
      */
+     
+     
+/* hounjini telephonyspoof mod */     
+	public String getSimSerialNumber() {
+		String ret = SystemProperties.get(TelephonyProperties.PROPERTY_FAKE_SIM_SERIAL, "null");
+		if(ret == "null") {
+			try {
+		        return getSubscriberInfo().getIccSerialNumber();
+		    } catch (RemoteException ex) {
+		        return null;
+		    } catch (NullPointerException ex) {
+		        // This could happen before phone restarts due to crashing
+		        return null;
+		    }
+		}
+		return ret;
+	}
+/*
     public String getSimSerialNumber() {
         try {
             return getSubscriberInfo().getIccSerialNumber();
@@ -690,7 +708,7 @@ public class TelephonyManager {
             return null;
         }
     }
-
+*/
     /**
      * Return if the current radio is LTE on CDMA. This
      * is a tri-state return value as for a period of time

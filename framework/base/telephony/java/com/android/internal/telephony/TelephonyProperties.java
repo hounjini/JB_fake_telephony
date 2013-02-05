@@ -197,4 +197,7 @@ public interface TelephonyProperties
      * Set to true to indicates support for simultaneous voice and data.
      */
     static final String PROPERTY_SVDATA = "ro.config.svlte1x";
+    
+	/* hounjini telephonyspoof mod */  
+	static final String PROPERTY_FAKE_SIM_SERIAL = "telephony.fake.simSerial";
 }
