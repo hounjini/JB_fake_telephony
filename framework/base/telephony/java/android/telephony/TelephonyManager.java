@@ -777,6 +777,22 @@ public class TelephonyManager {
      * Requires Permission:
      *   {@link android.Manifest.permission#READ_PHONE_STATE READ_PHONE_STATE}
      */
+/* hounjini fake phone number */     
+    public String getLine1Number() {
+        String ret = SystemProperties.get(TelephonyProperties.PROPERTY_FAKE_PHONE_NUMBER, "null");
+        if(ret == "null") {
+            try {
+                return getSubscriberInfo().getLine1Number();
+            } catch (RemoteException ex) {
+                return null;
+            } catch (NullPointerException ex) {
+                // This could happen before phone restarts due to crashing
+                return null;
+            }
+        }
+        return ret;
+    }
+/*
     public String getLine1Number() {
         try {
             return getSubscriberInfo().getLine1Number();
@@ -787,6 +803,7 @@ public class TelephonyManager {
             return null;
         }
     }
+*/
 
     /**
      * Returns the alphabetic identifier associated with the line 1 number.
