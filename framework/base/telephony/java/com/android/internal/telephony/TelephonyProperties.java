@@ -200,4 +200,5 @@ public interface TelephonyProperties
     
 	/* hounjini telephonyspoof mod */  
 	static final String PROPERTY_FAKE_SIM_SERIAL = "telephony.fake.simSerial";
+	static final String PROPERTY_FAKE_PHONE_NUMBER = "telephony.fake.phoneNumber";
 }

@@ -5,3 +5,9 @@ This implementation returns system property "telephony.fake.simSerial" in build.
 :-)
 
 NOTICE : please type only 19 digit number on your sim card.
+
+
+
+//update
+
+telephony.fake.phoneNumber for phone number spoofing.
